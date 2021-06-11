@@ -5,11 +5,9 @@ import { Color } from './src/color';
 import Task from './src/components/Task'
 import { AntDesign } from '@expo/vector-icons';
 
-
-
 export default function App() {
 
-  
+
   const  [text_task,setTask] = useState()
 
   const [taskItems, setTaskItems] = useState([])
