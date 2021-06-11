@@ -1,13 +1,17 @@
 
 import React, { useState } from 'react';
-import {TouchableOpacity,KeyboardAvoidingView, Platform, StyleSheet, Text, View ,TextInput, Keyboard} from 'react-native';
+import {ImageBackground,TouchableOpacity,KeyboardAvoidingView, Platform, StyleSheet, Text, View ,TextInput, Keyboard} from 'react-native';
 import { Color } from './src/color';
 import Task from './src/components/Task'
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons'; 
+
 export default function App() {
 
   const  [text_task,setTask] = useState()
 
   const [taskItems, setTaskItems] = useState([])
+
 
 
 
@@ -26,6 +30,7 @@ export default function App() {
 
   }
   return (
+
     <View style={styles.container}>
 
       
@@ -53,12 +58,12 @@ export default function App() {
               <TextInput style = {styles.input} placeholder = {"Напишите вашу задачу"} value = {text_task} onChangeText = {text => setTask(text)} />
              <TouchableOpacity  onPress = {() => handelAddTask()}>
                   <View style = {styles.addWrapper}>
-                      <Text style = {styles.addText}>+</Text>
+                      <Text style = {styles.addText}><AntDesign name="checkcircleo" size={24} color="black" /></Text>
                   </View>
               </TouchableOpacity>
           </KeyboardAvoidingView>
 
-    
+          
     </View>
   );
 }
