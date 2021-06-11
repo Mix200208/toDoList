@@ -24,7 +24,7 @@ export default function App() {
 
   const RemoveTask = (index) =>{
 
-    Alert.alert(text = "Вы удалили задачу")
+    Alert.alert(text = "Вы удалили задачу!")
     let itemsCopy = [...taskItems]
     itemsCopy.splice(index,1)
     setTaskItems(itemsCopy)

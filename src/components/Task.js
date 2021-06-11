@@ -10,6 +10,7 @@ const Task = (props) => {
                 <View style = {styles.square}><AntDesign name="checksquareo" size={24} color="black" /></View>
                 <Text style = {styles.text_task}>{props.text}</Text>
             </View>
+            
             <View style = {styles.circular}></View>
         </View>
     )
