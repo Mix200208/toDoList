@@ -4,7 +4,8 @@ import {ImageBackground,TouchableOpacity,KeyboardAvoidingView, Platform, StyleSh
 import { Color } from './src/color';
 import Task from './src/components/Task'
 import { AntDesign } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons'; 
+
+
 
 export default function App() {
 
@@ -31,10 +32,19 @@ export default function App() {
   }
   return (
 
+    <ImageBackground source ={require('./src/back.png')} style ={styles.backgroundImage}>
+
+    
+
+    
+
+
     <View style={styles.container}>
 
       
+    
 
+    
       <View style = {styles.titleWrapper}> 
           
           <Text style = {styles.textTitle}>Список задач</Text>
@@ -62,16 +72,18 @@ export default function App() {
                   </View>
               </TouchableOpacity>
           </KeyboardAvoidingView>
+    
 
           
     </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Color.BACK_COLOR,
+    //backgroundColor: Color.BACK_COLOR,
     
 
 
@@ -130,7 +142,12 @@ const styles = StyleSheet.create({
     borderWidth: 0.5
 
   },
-  addText:{}
+  addText:{},
+  backgroundImage:{
+        width: '100%',
+        height: '100%',
+        flex: 1 
+  }
 
 
   
