@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import {ImageBackground,TouchableOpacity,KeyboardAvoidingView, Platform, StyleSheet, Text, View ,TextInput, Keyboard} from 'react-native';
+import {ImageBackground,TouchableOpacity,KeyboardAvoidingView, Platform, StyleSheet, Text, View ,TextInput, Keyboard,Alert} from 'react-native';
 import { Color } from './src/color';
 import Task from './src/components/Task'
 import { AntDesign } from '@expo/vector-icons';
@@ -24,6 +24,7 @@ export default function App() {
 
   const RemoveTask = (index) =>{
 
+    Alert.alert(text = "Вы удалили задачу")
     let itemsCopy = [...taskItems]
     itemsCopy.splice(index,1)
     setTaskItems(itemsCopy)
