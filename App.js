@@ -28,6 +28,7 @@ export default function App() {
     let itemsCopy = [...taskItems]
     itemsCopy.splice(index,1)
     setTaskItems(itemsCopy)
+    
 
   }
   return (
