@@ -1,32 +1,57 @@
 
-import React from 'react';
-import {TouchableOpacity,KeyboardAvoidingView, Platform, StyleSheet, Text, View ,TextInput} from 'react-native';
+import React, { useState } from 'react';
+import {TouchableOpacity,KeyboardAvoidingView, Platform, StyleSheet, Text, View ,TextInput, Keyboard} from 'react-native';
 import { Color } from './src/color';
 import Task from './src/components/Task'
 export default function App() {
+
+  const  [text_task,setTask] = useState()
+
+  const [taskItems, setTaskItems] = useState([])
+
+
+
+  const handelAddTask = () => {
+
+      Keyboard.dismiss()
+      setTaskItems([...taskItems,text_task])
+      setTask(null)
+  }
+
+  const RemoveTask = (index) =>{
+
+    let itemsCopy = [...taskItems]
+    itemsCopy.splice(index,1)
+    setTaskItems(itemsCopy)
+
+  }
   return (
     <View style={styles.container}>
 
       
 
-      <View style = {styles.titleWrapper}>
+      <View style = {styles.titleWrapper}> 
           
           <Text style = {styles.textTitle}>Список задач</Text>
       
           <View style = {styles.elements}>
-            <Task text = {"1 задача"}/>
-            <Task text = {"2 задача"}/>
+            
+             { taskItems.map((item,index) => { return(
 
-           
-
+                <TouchableOpacity key = {index} onPress = {() => RemoveTask()}>
+                      <Task key = {index} text ={item}/>
+                </TouchableOpacity>
+                )})
+             }
             </View>
             
+             
         </View>
 
           <KeyboardAvoidingView behavior = {Platform.OS === "android" ? "height":"padding"} 
             style = {styles.writeTask}>
-              <TextInput style = {styles.input} placeholder = {"Напишите вашу задачу"}/>
-              <TouchableOpacity>
+              <TextInput style = {styles.input} placeholder = {"Напишите вашу задачу"} value = {text_task} onChangeText = {text => setTask(text)} />
+             <TouchableOpacity  onPress = {() => handelAddTask()}>
                   <View style = {styles.addWrapper}>
                       <Text style = {styles.addText}>+</Text>
                   </View>
@@ -74,7 +99,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
     
   },
-  
+
   input:{
 
     paddingVertical : 15,
